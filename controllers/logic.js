@@ -18,9 +18,7 @@ const employeeRegister = async (req, res) => {
     const preEmployee = await employees.findOne({ email });
 
     if (preEmployee) {
-        res.status(404).json({
-            error: "employee already present"
-        });
+        res.status(404).json("employee already present");
     } else {
         
             const newEmployee = new employees({
