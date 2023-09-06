@@ -2,7 +2,7 @@
 //set paths for each requests
 
 const express = require('express');
-const { employeeRegister } = require('../controllers/logic');
+const { employeeRegister, getAllEmployees } = require('../controllers/logic');
 const upload = require('../multerconfig/storageConfig');
 
 //create an object for Router class in express
@@ -13,7 +13,7 @@ const router = new express.Router();
 router.post('/employees/register',upload.single('user_profile'),employeeRegister);
 
 //get all employees
-router.get('/employees/getEmployees');
+router.get('/employees/getEmployees',getAllEmployees);
 
 
 module.exports = router;

@@ -28,6 +28,10 @@ server.use(router);
 
 //port setting for the server and for the .env ,both running in the same port  
 const port = 8002 || process.env.port;
+
+//export uploads folder to client
+server.use('/uploads',express.static('./uploads'));
+
 server.listen(port,() => {
     console.log(`___EMS server started at Port ${port}___`);
 })

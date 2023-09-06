@@ -43,6 +43,19 @@ const employeeRegister = async (req, res) => {
     }
 }
 
+
+//get all employees
+getAllEmployees = async (req, res) => {
+    try{
+        const allEmployees = await employees.find();
+        res.status(200).json(allEmployees);
+
+    }catch(err){
+        console.log(err);
+        res.json(410).json("data not found");
+    }
+}
+
 module.exports = { 
-    employeeRegister
+    employeeRegister , getAllEmployees
 }
